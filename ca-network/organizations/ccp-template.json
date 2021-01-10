@@ -1,0 +1,55 @@
+{
+	"name": "idtree-network-${ORG}",
+	"version": "1.0.0",
+	"client": {
+		"organization": "${ORG}",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				}
+			}
+		}
+	},
+	"organizations": {
+		"${ORG}": {
+			"mspid": "${ORG}MSP",
+			"peers": ["peer0.${ORG}.idtree.com", "peer1.${ORG}.idtree.com"],
+			"certificateAuthorities": ["ca.${ORG}.idtree.com"]
+		}
+	},
+	"peers": {
+		"peer0.${ORG}.idtree.com": {
+			"url": "grpcs://peer0.${ORG}.idtree.com:${P0PORT}",
+			"tlsCACerts": {
+				"pem": "${PEERPEM}"
+			},
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.${ORG}.idtree.com",
+				"hostnameOverride": "peer0.${ORG}.idtree.com"
+			}
+		},
+		"peer1.${ORG}.idtree.com": {
+			"url": "grpcs://peer1.${ORG}.idtree.com:${P1PORT}",
+			"tlsCACerts": {
+				"pem": "${PEERPEM}"
+			},
+			"grpcOptions": {
+				"ssl-target-name-override": "peer1.${ORG}.idtree.com",
+				"hostnameOverride": "peer1.${ORG}.idtree.com"
+			}
+		}
+	},
+	"certificateAuthorities": {
+		"ca.${ORG}.idtree.com": {
+			"url": "https://ca_${ORG}:${CAPORT}",
+			"caName": "ca-${ORG}",
+			"tlsCACerts": {
+				"pem": "${CAPEM}"
+			},
+			"httpOptions": {
+				"verify": false
+			}
+		}
+	}
+}

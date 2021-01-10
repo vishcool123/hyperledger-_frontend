@@ -1,0 +1,9 @@
+{
+	"network-configs": {
+		"idtree-network": {
+			"name": "idtree-network",
+			"profile": "./connection-profile/idtree-network.json"
+		}
+	},
+	"license": "Apache-2.0"
+}

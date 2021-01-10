@@ -1,0 +1,14 @@
+{
+	"name": "idtree-sdk",
+	"version": "1.0.2",
+	"description": "SDK to Interact with IDTree Hyperledger Network and generate UniqueIDs",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^0.21.1"
+	}
+}

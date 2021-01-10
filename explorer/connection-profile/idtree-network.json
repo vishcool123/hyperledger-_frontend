@@ -1,0 +1,90 @@
+{
+	"name": "idtree-network",
+	"version": "1.0.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "admin",
+			"password": "adminpw"
+		},
+		"enableAuthentication": false,
+		"organization": "superadmin",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"idtreechannel": {
+			"peers": {
+				"peer0.superadmin.idtree.com": {},
+				"peer1.superadmin.idtree.com": {},
+				"peer0.users.idtree.com": {},
+				"peer1.users.idtree.com": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"superadmin": {
+			"mspid": "superadminMSP",
+			"fullpath": true,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/superadmin.idtree.com/users/Admin@superadmin.idtree.com/msp/keystore/af2e815e51d6af6d13eea70455d56bb21008e87dfe4c5f391e4e2326e4e0d407_sk"
+			},
+			"peers": ["peer0.superadmin.idtree.com", "peer1.superadmin.idtree.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/superadmin.idtree.com/users/Admin@superadmin.idtree.com/msp/signcerts/cert.pem"
+			}
+		},
+		"users": {
+			"mspid": "usersMSP",
+			"fullpath": true,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/users.idtree.com/users/Admin@users.idtree.com/msp/keystore/f1a6f126c5ce96fa27610d57afc3627f20ed22486366969531879866cdab13d3_sk"
+			},
+			"peers": ["peer0.users.idtree.com", "peer1.users.idtree.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/users.idtree.com/users/Admin@users.idtree.com/msp/signcerts/cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.superadmin.idtree.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/superadmin.idtree.com/peers/peer0.superadmin.idtree.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.superadmin.idtree.com:7051"
+		},
+		"peer1.superadmin.idtree.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/superadmin.idtree.com/peers/peer1.superadmin.idtree.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer1.superadmin.idtree.com:8051"
+		},
+		"peer0.users.idtree.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/users.idtree.com/peers/peer0.users.idtree.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.users.idtree.com:9051"
+		},
+		"peer1.users.idtree.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/users.idtree.com/peers/peer1.users.idtree.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer1.users.idtree.com:10051"
+		}
+	}
+}

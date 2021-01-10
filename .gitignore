@@ -1,0 +1,13 @@
+/ca-network/organizations/fabric-ca/superadmin
+/ca-network/organizations/fabric-ca/users
+/ca-network/organizations/fabric-ca/ordererOrg
+/ca-network/organizations/ordererOrganizations
+/ca-network/organizations/peerOrganizations
+/network/crypto-config/*
+/network/channel-artifacts/*
+/chaincode/uniqueid/go.sum
+/chaincode/uniqueid/vendor/*
+/application/node_modules/*
+/application/sdk/connection/*
+**/logs/*
+/application/.vscode
