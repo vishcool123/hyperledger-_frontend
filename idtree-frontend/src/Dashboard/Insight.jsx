@@ -4,6 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 import Header from "./Header.jsx";
 import SideNavbar from "./sideNavbar.jsx";
 import { toast } from "react-toastify";
+import swal from 'sweetalert';
 
 export default class Insight extends Component {
     constructor(props){
@@ -20,7 +21,7 @@ export default class Insight extends Component {
           .then((data) => {
               this.setState({platformUsers:data.data.data.platformUsers,nonPlatformUsers:data.data.data.nonPlatformUsers})
           })
-          .catch((error) => toast.error(error));
+          .catch((error) => swal(error.response.data.data,'','error'));
       };
     componentDidMount(){
       this.insight()

@@ -14,6 +14,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Header from "./Header.jsx";
 import SideNavbar from "./sideNavbar.jsx";
+import swal from 'sweetalert';
 
 import {
   tableOptions,
@@ -108,7 +109,7 @@ export default class BlockList extends Component {
       .then((data) => {
         this.setState({ user_list: data.data.data });
       })
-      .catch((error) => toast.error(error));
+      .catch((error) => swal(error.response.data.data,'','error'));
   };
   componentDidMount() {
     this.getAllUser();
@@ -198,7 +199,7 @@ export default class BlockList extends Component {
         toast.success('User Access Updated');
         this.getAllUser()
       })
-      .catch((error) => toast.error(error));
+      .catch((error) => toast.error(error.response.data.data));
   };
   rankFormater = (cell, row, rowIndex, formatExtraData) => {
     return (

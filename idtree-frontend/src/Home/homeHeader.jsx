@@ -71,7 +71,7 @@ export default class homeHeader extends Component {
             className="btn btn-primary f-m"
             style={{ backgroundColor: "#00917c",padding: '12px' }}
           >
-            {!isLogin ? this.props.button : isAdmin ? "Admin" : "User"}
+            {!isLogin ? this.props.button : isAdmin ? "DASHBOARD" : "DASHBOARD"}
           </Link>
             </ul>
           </nav>

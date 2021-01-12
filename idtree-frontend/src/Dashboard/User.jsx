@@ -4,6 +4,7 @@ import SideNavbar from "./sideNavbar.jsx";
 import { toast } from "react-toastify";
 import axios from "axios";
 import Loader from "./Loader.jsx";
+import swal from 'sweetalert';
 
 export default class user extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class user extends Component {
       key: "",
       privateKey: "",
       loader: false,
-      count: '',
+      count: "",
     };
   }
   genKey = async () => {
@@ -31,7 +32,11 @@ export default class user extends Component {
           loader: false,
         });
       })
-      .catch((error) => toast.error(error));
+      .catch((error) => {
+        // toast.error(error.response.data.data);
+        this.setState({ loader: false });
+        swal(error.response.data.data,'','error')
+      });
   };
   render() {
     const apiKey = JSON.parse(localStorage.getItem("key"));
@@ -48,6 +53,7 @@ export default class user extends Component {
               <div className="row mt-4" style={{ marginLeft: "173px" }}>
                 <div className="col-sm-6">
                   <div className="form-group">
+                    <label style={{marginBottom: '2px'}}>Your Api Key: </label>
                     <input
                       type="text"
                       className="form-control"

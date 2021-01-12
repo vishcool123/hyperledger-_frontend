@@ -10,6 +10,7 @@ import Nav from "./homeHeader.jsx";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Loader from '../Dashboard/Loader.jsx';
+import swal from 'sweetalert';
 
 
 
@@ -27,14 +28,14 @@ function Home(props) {
         setPrivatekey(data.data.data.uniqueID.privateKey);
         setLoader(false);
       })
-      .catch((error) => toast.error(error));
+      .catch((error) => swal(error.response.data.data,'','error'));
   };
   return (
     <>
       <div className="container-fluid ">
         <div className="row">
           <div className="col p-0">
-            <Nav button="Login" />
+            <Nav button="LOGIN" />
             <div className="form-group genKey">
               <button
                 type="submit"

@@ -193,11 +193,14 @@ class sideNavbar extends Component {
             </div>
 
             <ul className="signup-link">
+             <li>
+                <Link to='/' target='_blank'>HOME</Link>
+              </li>
               <li>
                 <a href='http://3.23.128.15/sdk-docs/' target='_blank'>SDK-DOCS</a>
               </li>
               <li>
-                <Link onClick={this.logouthandler}>Logout</Link>
+                <Link onClick={this.logouthandler}>LOGOUT</Link>
               </li>
             </ul>
           </nav>
